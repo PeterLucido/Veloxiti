@@ -49,7 +49,7 @@ export default function Home() {
             description="Join Veloxiti’s exclusive networking events designed to foster connections and expand your professional circle. Experience engaging discussions, collaborative sessions, and the opportunity to meet industry leaders, all tailored to enhance your business and personal growth."
             buttonText="Get Started"
             buttonLink="/Networking"
-            imageSrc="/networking.jpg"
+            imageSrc="/networking_small.jpg"
             imageAlt="Networking Events"
             imageWidth={500}
             imageHeight={300}
@@ -61,7 +61,7 @@ export default function Home() {
             description="Join forces with us and leverage our partnership opportunities to expand your reach and enhance your business capabilities. Our platform facilitates seamless collaboration and integration, empowering you and your partners to innovate and grow together."
             buttonText="Partner with Us"
             buttonLink="/Partners"
-            imageSrc="/partners.jpg"
+            imageSrc="/partners_small.jpg"
             imageAlt="Strategic Partnerships"
             imageWidth={500}
             imageHeight={300}
