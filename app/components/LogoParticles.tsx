@@ -49,8 +49,8 @@ const LogoParticles = () => {
 
       try {
         const particleSlider = new window.ParticleSlider({
-          ptlGap: isMobile || isSmall ? 0 : 0,
-          ptlSize: isMobile || isSmall ? 1 : 1,
+          ptlGap: isMobile || isSmall ? 1 : 5,
+          ptlSize: isMobile || isSmall ? 1 : 3,
           width: window.innerWidth,
           height: window.innerHeight,
           mouseForce: 1000,
