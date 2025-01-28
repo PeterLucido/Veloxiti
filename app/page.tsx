@@ -1,101 +1,77 @@
-import Image from "next/image";
+'use client';
+import { useEffect, useState } from 'react';
+import RightPhoto from '../app/components/rightphoto';
+import LeftPhoto from '../app/components/leftphoto';
+import LogoParticles from './components/LogoParticles';
+import HeroSection from './components/HeroSection';
+import ContactForm from './components/ContactForm';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [isMobile, setIsMobile] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
+    };
+
+    checkIfMobile();
+  }, []);
+
+  return (
+    <>
+    <div className="relative">
+      {/* Main Container */}
+      <div className='z-6'>
+        <HeroSection />
+      </div>
+        {/* LogoParticles Below */}
+        <div className="absolute inset-0 h-10 z-5">
+          <LogoParticles />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+        {/* Additional Content */}
+        <div className='z-20'>
+          <div className=" z-45 pb-6">
+            <RightPhoto
+              title="Custom Software Solutions for Your Business"
+              description="Explore Veloxiti’s custom software solutions designed to enhance your business operations. From tailored customer relationship management to bespoke financial reporting tools, our software is built to integrate seamlessly and automate your workflows efficiently."
+              buttonText="Learn More"
+              buttonLink="/Software"
+              imageSrc="/VELOXITI_V.png"
+              imageAlt="Custom Software Platform"
+              imageWidth={350}
+              imageHeight={100}
+            />
+          </div>
+        </div>
+        <div className="z-45 pb-6">
+          <LeftPhoto
+            title="Connect and Grow with Our Networking Events"
+            description="Join Veloxiti’s exclusive networking events designed to foster connections and expand your professional circle. Experience engaging discussions, collaborative sessions, and the opportunity to meet industry leaders, all tailored to enhance your business and personal growth."
+            buttonText="Get Started"
+            buttonLink="/Networking"
+            imageSrc="/networking.jpg"
+            imageAlt="Networking Events"
+            imageWidth={500}
+            imageHeight={300}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+        </div>
+        <div className="z-45 pb-6">
+          <RightPhoto
+            title="Build Strategic Partnerships with Our Platform"
+            description="Join forces with us and leverage our partnership opportunities to expand your reach and enhance your business capabilities. Our platform facilitates seamless collaboration and integration, empowering you and your partners to innovate and grow together."
+            buttonText="Partner with Us"
+            buttonLink="/Partners"
+            imageSrc="/partners.jpg"
+            imageAlt="Strategic Partnerships"
+            imageWidth={500}
+            imageHeight={300}
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </div>
+      </div>
+      <div className='mt-6'>
+        <h2 className="text-4xl font-light mb-8 text-center text-white">Contact Us</h2>
+        <ContactForm />
+      </div>
+    </>
   );
 }
