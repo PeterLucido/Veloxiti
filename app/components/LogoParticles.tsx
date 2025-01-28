@@ -1,5 +1,27 @@
 import { useEffect } from "react";
 
+interface ParticleSliderOptions {
+  ptlGap: number;
+  ptlSize: number;
+  width: number;
+  height: number;
+  mouseForce: number;
+}
+
+interface ParticleSlider {
+  new (options: ParticleSliderOptions): ParticleSliderInstance;
+}
+
+interface ParticleSliderInstance {
+  mouse: { x: number; y: number };
+}
+
+declare global {
+  interface Window {
+    ParticleSlider: ParticleSlider;
+  }
+}
+
 const LogoParticles = () => {
   useEffect(() => {
     const cleanUpParticleSlider = () => {
@@ -25,7 +47,7 @@ const LogoParticles = () => {
       sliderContainer.appendChild(canvas);
 
       try {
-        const particleSlider = new (window as any).ParticleSlider({
+        const particleSlider = new window.ParticleSlider({
           ptlGap: isMobile || isSmall ? 0 : 0,
           ptlSize: isMobile || isSmall ? 1 : 1,
           width: window.innerWidth,
