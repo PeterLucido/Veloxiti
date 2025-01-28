@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 
+// Add in the types to make it happy
 interface ParticleSliderOptions {
   ptlGap: number;
   ptlSize: number;
