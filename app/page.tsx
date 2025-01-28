@@ -7,7 +7,7 @@ import HeroSection from './components/HeroSection';
 import ContactForm from './components/ContactForm';
 
 export default function Home() {
-  const [isMobile, setIsMobile] = useState(false);
+  const [, setIsMobile] = useState(false);
 
   useEffect(() => {
     const checkIfMobile = () => {
